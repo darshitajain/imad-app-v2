@@ -1,4 +1,4 @@
-console.log('Loaded!');
+/*console.log('Loaded!');
 
 //change the existing text
 
@@ -23,27 +23,15 @@ img.onclick = function(){
     
     var interval = setInterval(moveRight,50);
     
-};
+}; */
 
 var button = document.getElementById('counter');
 var counter = 0;
 
- button.onclick = function(){
-    
-    // Make a request to the counter endpoint
-    
-    
-    // Capture the response and store in the variable
-    
-    // render the variable in the correct span
-    counter = counter + 1;
+button.onclick = function(){ 
+    counter= counter + 1;
     var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
-    
-    
-    
-        
+    span.innerHTML=counter.toString();                            
 };
-
 
 
