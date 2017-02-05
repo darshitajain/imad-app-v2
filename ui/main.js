@@ -4,3 +4,13 @@ console.log('Loaded!');
 
 var element= document.getElementById('main-text');
 element.innerHTML='Hi I am Madi!!';
+
+//change the position of image on click
+
+var img = document.getElementById('img');
+
+img.onclick = function(){
+    
+    img.style.Left = '100px';
+    
+};
