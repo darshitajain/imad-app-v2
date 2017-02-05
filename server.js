@@ -9,17 +9,15 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one',function(req,res){
-    res.send(createTemplate(articleOne));
+app.get('/:articleName',function(req,res){
+   
+   var articleName = req.params.articleName;
+   
+ res.send(createTemplate(articles[articleName]));
+   
+   
 });
 
-app.get('/article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
@@ -29,7 +27,9 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-var articleOne = {
+var articles= {
+    
+    'article-one' : {
     title : ' Article One | Darshita Jain',
     heading: 'Article One',
     date : ' 5 Feb , 2017',
@@ -42,8 +42,31 @@ var articleOne = {
            </p>
            <p>
                This online course will bring together a combination of theory and practice to convey the principles of building web applications.
-           </p>`
-};
+           </p>`},
+           
+   'article-two' : {
+    title : ' Article Two | Darshita Jain ',
+    heading: 'Article Two',
+    date : ' 10 Feb , 2017',
+    content : `
+            <p>
+                This is the content of Article-two !
+            </p>
+           `},
+  'article-three' : {
+       title : ' Article Three | darshita Jain',
+    heading: 'Article Three',
+    date : ' 14 feb , 2017',
+    content : `
+            <p>
+                 This is the content of Article-three !
+            `}
+           
+        
+        
+};     
+    
+
 
 function createTemplate(data) {
 var title = data.title;
@@ -78,45 +101,6 @@ var htmlTemplate = `<html>
 
 return htmlTemplate;
 }
-
- 
-
- 
-
-
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
