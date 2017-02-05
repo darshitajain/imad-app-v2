@@ -11,6 +11,6 @@ var img = document.getElementById('img');
 
 img.onclick = function(){
     
-    img.style.Left = '100px';
+    img.style.marginLeft = '100px';
     
 };
