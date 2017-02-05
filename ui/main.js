@@ -36,7 +36,7 @@ var counter = 0;
     // Capture the response and store in the variable
     
     // render the variable in the correct span
-    counter ++;
+    counter = counter + 1;
     var span = document.getElementById('count');
     span.innerHTML = counter.toString();
     
