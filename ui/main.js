@@ -7,7 +7,7 @@ element.innerHTML='Hi I am Madi!!';
 
 //change the position of image on click
 
-var img = document.getElementById('img');
+var img = document.getElementById('madi');
 
 img.onclick = function(){
     
