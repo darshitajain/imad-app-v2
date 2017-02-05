@@ -24,7 +24,7 @@ img.onclick = function(){
     var interval = setInterval(moveRight,50);
     
 }; */
-
+window.onload= function(){
 var button = document.getElementById('counter');
 var counter = 0;
 
@@ -34,4 +34,4 @@ button.onclick = function(){
     span.innerHTML=counter.toString();                            
 };
 
-
+};
