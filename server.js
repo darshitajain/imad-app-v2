@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+    res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two',function(req,res){
@@ -28,6 +28,94 @@ app.get('/ui/style.css', function (req, res) {
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
+
+var articleOne = {
+    title : ' Article One | Darshita Jain',
+    heading: 'Article One',
+    date : ' 5 Feb , 2017',
+    content : `
+            <p>
+                IMAD (Introduction to Modern Application Development) is a MOOC on how to build web/mobile applications offered by Hasura & IIT Madras.
+            </p>
+            <p>
+                If you just want to experience the joy of building an app, or have dreams of finding a job at one of the hottest tech companies or actually building one or just understand the app world that you cannot escape, you have come to the right place!
+           </p>
+           <p>
+               This online course will bring together a combination of theory and practice to convey the principles of building web applications.
+           </p>`
+};
+
+function createTemplate(data) {
+var title = data.title;
+var date = data.date;
+var heading = data.heading;
+var content = data.content;
+
+var htmlTemplate = `<html>
+    <head>
+        <title>
+            ${title}
+        </title>
+        <meta name="viewport" content="width=device-width , initial-scale=1">
+        <link href="/ui/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href = "/">Home</a>
+        </div>
+        <hr/>
+        <h3> ${heading} </h3>
+        <div>
+            ${date}
+        </div>
+        <div>
+            ${content}
+          </div>
+        </div>
+    </body>
+</html>` ;
+
+return htmlTemplate;
+}
+
+ 
+
+ 
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
