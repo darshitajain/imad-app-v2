@@ -10,7 +10,7 @@ var config = {
     database:'darshitajain',
     host:'http://db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD
+    password:'db-darshitajain-54266'
 };
 
 
