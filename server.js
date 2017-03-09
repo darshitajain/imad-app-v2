@@ -15,6 +15,8 @@ var config = {
 };
 
 function hash(input,salt){
+    //before putting input in single quotes I was getting "not a buffer error" 
+    //and after including it in quotes I am getting the same hash values for all the input strings!
     var hashed = crypto.pbkdf2Sync('input',salt,10000,512,'sha512');
     return ["pbkdf2","10000","this-is-some-random-string", hashed.toString('hex')].join('$');
 }
