@@ -14,13 +14,16 @@ var config = {
     password:process.env.DB_PASSWORD
 };
 
-function hash(input,salt){
+//function hash(input,salt){
     //before putting input in single quotes I was getting "not a buffer error" 
     //and after including it in quotes I am getting the same hash values for all the input strings!
-    var hashed = crypto.pbkdf2Sync('input',salt,10000,512,'sha512');
-    return ["pbkdf2","10000","this-is-some-random-string", hashed.toString('hex')].join('$');
+   // var hashed = crypto.pbkdf2Sync('input',salt,10000,512,'sha512');
+   // return ["pbkdf2","10000","this-is-some-random-string", hashed.toString('hex')].join('$');
+//}
+function hash(input,salt){
+        var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');   //No quotes around 'input' needed
+        return ["pbkdf2","10000",salt, hashed.toString('hex')].join('$'); //No need to write the salt value explicitly
 }
-
 
 app.get('/hash/:input',function(req,res){
     var hashedString=hash(req.param.input,'this-is-some-random-string');
