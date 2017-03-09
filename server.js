@@ -16,7 +16,7 @@ var config = {
 
 function hash(input,salt){
     var hashed = crypto.pbkdf2Sync(input,salt,10000,512,'sha512');
-    return ["pbkdf2","10000",salt,hashed.toString()].join("$");
+    return ["pbkdf2","10000",salt,hashed.toString('hex')].join("$");
 }
 
 
